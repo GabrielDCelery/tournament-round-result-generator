@@ -1,0 +1,38 @@
+{
+    "name": "tournament-round-result-generator",
+    "version": "1.0.0",
+    "description": "A module that generates a breakdown on the results of each rounds based on the pairings and the final standing.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GabrielDCelery/tournament-round-result-generator.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GabrielDCelery/tournament-round-result-generator/issues"
+    },
+    "homepage": "https://github.com/GabrielDCelery/tournament-round-result-generator#readme",
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "chai-as-promised": "^7.1.1",
+        "eslint": "^4.15.0",
+        "eslint-config-standard": "^11.0.0-beta.0",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-node": "^5.2.1",
+        "eslint-plugin-promise": "^3.6.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "mocha": "^4.1.0",
+        "nyc": "^11.4.1",
+        "sinon": "^4.1.6"
+    },
+    "nyc": {
+        "exclude": [
+            "node_modules",
+            "test"
+        ]
+    }
+}
