@@ -39,15 +39,15 @@ describe('PairingResults', () => {
                 [0, 0, 3, 3]
             ]);
 
-            const instance2 = new PairingResults([
+            const instance3 = new PairingResults([
                 [10, 0],
                 [6, 1],
                 [1, 6],
                 [0, 10]
             ]);
-            const result2 = instance2.generatePossiblePlayerScores([2, 3, 0, 1]);
+            const result3 = instance3.generatePossiblePlayerScores([2, 3, 0, 1]);
 
-            expect(result2).to.have.deep.members([
+            expect(result3).to.have.deep.members([
                 [10, 10, 1, 1],
                 [10, 6, 1, 1],
                 [6, 10, 1, 1],

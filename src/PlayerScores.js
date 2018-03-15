@@ -4,6 +4,7 @@ class PlayerScores {
     constructor(_finalPlayerScores) {
         this.finalPlayerScores = _finalPlayerScores;
         this.playerScores = new Array(_finalPlayerScores.length).fill(0);
+        this.roundBreakDown = [];
     }
 
     appendRoundResults(_scoresToAppend, _bReturnFalseOnInvalid) {
@@ -23,6 +24,8 @@ class PlayerScores {
                 throw new Error(`Invalid score for player ${_i}`);
             }
         }
+
+        this.roundBreakDown.push(_scoresToAppend);
 
         return true;
     }
