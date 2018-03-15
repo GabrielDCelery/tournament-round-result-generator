@@ -15,7 +15,7 @@ class PairingResults {
     }
 
     generatePossiblePlayerScores(_pairings) {
-        const _possibleScores = [];
+        const _allScoreCombinations = [];
         const _scoresCovered = {};
 
         _pairings.forEach((_opponent, _player) => {
@@ -39,10 +39,12 @@ class PairingResults {
                 _scoresCovered[_hash] = true;
             });
 
-            _possibleScores.push(_possiblePairingResults);
-        });
+            if(_possiblePairingResults.length === 0) {
+                return;
+            }
 
-        console.log(_possibleScores);
+            _allScoreCombinations.push(_possiblePairingResults);
+        });
 
         return [];
     }
