@@ -23,11 +23,11 @@ describe('PairingResults', () => {
     });
 
     describe('generatePossiblePlayerScores(_pairings)', () => {
-        it('creates an array of possible score outcomes based on the piarings', () => {
+        it('creates an array of possible score outcomes based on the pairings', () => {
             const instance = new PairingResults();
             const result = instance.generatePossiblePlayerScores([2, 3, 0, 1]);
 
-            expect(result).to.deep.equal([
+            expect(result).to.have.deep.members([
                 [3, 3, 0, 0],
                 [3, 1, 0, 1],
                 [1, 1, 1, 1],
@@ -47,7 +47,7 @@ describe('PairingResults', () => {
             ]);
             const result2 = instance2.generatePossiblePlayerScores([2, 3, 0, 1]);
 
-            expect(result2).to.deep.equal([
+            expect(result2).to.have.deep.members([
                 [10, 10, 1, 1],
                 [10, 6, 1, 1],
                 [6, 10, 1, 1],
