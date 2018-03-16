@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const DataTreeNode = require('./DataTreeNode');
 
 class DataSumTree {
     constructor() {
@@ -60,6 +61,10 @@ class DataSumTree {
         }
 
         return this.sums;
+    }
+
+    static createTreeNode(_data) {
+        return new DataTreeNode(_data);
     }
 }
 
