@@ -9,12 +9,12 @@ describe('PairingResults', () => {
         it('creates an instance', () => {
             const instance = new PairingResults();
 
-            expect(instance.DEFAULT_POSSIBLE_RESULT_SCORES).to.eql([
+            expect(instance.DEFAULT_POSSIBLE_RESULTS_FOR_PAIR).to.eql([
                 [3, 0],
                 [1, 1],
                 [0, 3]
             ]);
-            expect(instance.possibleResultScores).to.eql([
+            expect(instance.possibleResultsForPair).to.eql([
                 [3, 0],
                 [1, 1],
                 [0, 3]
