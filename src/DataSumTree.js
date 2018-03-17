@@ -1,20 +1,14 @@
 'use strict';
 
 const _ = require('lodash');
-const DataTreeNode = require('./DataTreeNode');
+const DataTree = require('./DataTree');
 
-class DataSumTree {
+class DataSumTree extends DataTree {
     constructor () {
-        this.treeNodes = null;
+        super();
         this.baseSum = null;
         this.sums = [];
         this.appendNodeDataToSum = null;
-    }
-
-    setTreeNodes (_treeNodes) {
-        this.treeNodes = _treeNodes;
-
-        return this;
     }
 
     setBaseSum (_baseSum) {
@@ -30,23 +24,23 @@ class DataSumTree {
     }
 
     _appendNextNodeToSum (_sum, _node) {
-        const _modifiedSum = this.appendNodeDataToSum(_sum, _node.data);
+        const _modifiedSum = this.appendNodeDataToSum(_sum, _node.getData());
 
-        if (_node.childNodes.length === 0) {
-            _node.completed = true;
+        if (_node.getNumOfChildNodes() === 0) {
+            _node.toggleCompletedState(true);
 
             return this.sums.push(_modifiedSum);
         }
 
-        for (let _i = 0, _iMax = _node.childNodes.length; _i < _iMax; _i++) {
-            const _childNode = _node.childNodes[_i];
+        for (let _i = 0, _iMax = _node.getNumOfChildNodes(); _i < _iMax; _i++) {
+            const _childNode = _node.getChildNode(_i);
 
-            if (_childNode.completed === false) {
+            if (_childNode && _childNode.getCompletedState() === false) {
                 return this._appendNextNodeToSum(_modifiedSum, _childNode);
             }
         }
 
-        _node.completed = true;
+        _node.toggleCompletedState(true);
     }
 
     doSum () {
@@ -62,15 +56,11 @@ class DataSumTree {
             throw new Error('Forgot to set a sum method!');
         }
 
-        while (this.treeNodes.completed === false) {
+        while (this.treeNodes.getCompletedState() === false) {
             this._appendNextNodeToSum(_.cloneDeep(this.baseSum), this.treeNodes);
         }
 
         return this.sums;
-    }
-
-    static createTreeNode (_data) {
-        return new DataTreeNode(_data);
     }
 }
 

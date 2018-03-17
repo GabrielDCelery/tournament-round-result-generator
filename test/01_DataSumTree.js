@@ -6,30 +6,14 @@ const sinon = require('sinon');
 const DataSumTree = require('../src/DataSumTree');
 
 describe('DataSumTree', () => {
-    describe('#constructor(_finalPlayerScores)', () => {
-        it('creates an instance', () => {
+    describe('#constructor ()', () => {
+        it('creates a default instance', () => {
             const instance = new DataSumTree();
 
             expect(instance.treeNodes).to.eql(null);
             expect(instance.baseSum).to.eql(null);
             expect(instance.sums).to.eql([]);
             expect(instance.appendNodeDataToSum).to.eql(null);
-        });
-    });
-
-    describe('::createTreeNode (_data)', () => {
-        it('creates a node for the sum tree', () => {
-            const _node = DataSumTree.createTreeNode({
-                foo: 'bar'
-            });
-
-            expect(_node).to.deep.equal({
-                data: {
-                    foo: 'bar'
-                },
-                completed: false,
-                childNodes: []
-            });
         });
     });
 
